@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #f4f2ee;
+  --cream-soft: #f0efea;
+  --cream-card: #fbfaf7;
+  --ink: #0c0c0d;
+  --ink-soft: #2b2b2e;
+  --gray-1: #6b6b70;
+  --gray-2: #9a9a9f;
+  --gray-3: #c7c6c2;
+  --line: rgba(12, 12, 13, 0.1);
+  --accent: #7c8aa0; /* single muted slate accent, used sparingly */
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-soft: var(--cream-soft);
+  --color-cream-card: var(--cream-card);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-gray-1: var(--gray-1);
+  --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
+  --color-accent: var(--accent);
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  background: var(--cream);
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+/* Thin monochrome scrollbar */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--gray-3);
+  border-radius: 999px;
+  border: 3px solid var(--cream);
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(4%, -3%, 0) rotate(8deg) scale(1.08);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes drift-slow {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-5%, 4%, 0) rotate(-10deg) scale(1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1.05);
+  }
+}
+
+@keyframes chrome-spin {
+  from {
+    transform: rotate(45deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotate(45deg) rotateZ(360deg);
+  }
+}
+
+/* Continuous left-to-right logo marquee. Track holds two identical copies,
+   so animating from -50% to 0 loops seamlessly while moving rightward. */
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
