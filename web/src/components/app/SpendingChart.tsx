@@ -65,7 +65,7 @@ export default function SpendingChart({ data }: { data: CategorySummary[] }) {
               ))}
             </Pie>
             <Tooltip
-              formatter={(v: number) => fmt(v)}
+              formatter={(v) => fmt(Number(v))}
               contentStyle={{
                 borderRadius: 12,
                 border: "1px solid rgba(12,12,13,0.1)",
@@ -114,7 +114,7 @@ export default function SpendingChart({ data }: { data: CategorySummary[] }) {
               />
               <Tooltip
                 cursor={{ fill: "rgba(12,12,13,0.04)" }}
-                formatter={(v: number) => fmt(v)}
+                formatter={(v) => fmt(Number(v))}
                 contentStyle={{
                   borderRadius: 12,
                   border: "1px solid rgba(12,12,13,0.1)",
